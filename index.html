@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+    :root {
+      --logo-fnt: 700 72pt "UnifrakturCook";
+      --main-fnt: 14pt "Frank Ruhl Libre";
+      --title-fnt: 700 28pt "Frank Ruhl Libre";
+    }
+    *:not(html, svg, body, #main, section, div, header, picture, img) {
+      margin: 0;
+      padding: 0;
+      filter: url(#noise-filter) grayscale(1) contrast(2) brightness(0.75);
+    }
+    body {
+      filter: none;
+      line-height: 1.5;
+      font: var(--main-fnt);
+    }
+    #main p {
+      -webkit-text-stroke: 0.2px black;
+      margin-bottom: 1em;
+      text-indent: 1em;
+      text-align: justify;
+      &.first {
+        text-indent: 0;
+        &::first-letter {
+          font-size: 300%;
+          float: left;
+          font-weight: bold;
+          margin-right: 0.1em;
+        }
+      }
+    }
+    #main {
+      margin: 0 20em;
+    }
+    header {
+      text-align: center;
+      padding: 2em 0;
+      & h1 {
+        -webkit-text-stroke: 2px black;
+        font: var(--logo-fnt);
+      }
+      & h2 {
+        -webkit-text-stroke: 2px black;
+        font: var(--title-fnt);
+        font-stretch: semi-condensed;
+      }
+      & h3 {
+        font: var(--main-fnt);
+        -webkit-text-stroke: 0.2px black;
+      }
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background-color: black;
+      margin: 1em 0;
+    }
+    picture {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      object-fit: cover;
+      & img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: contrast(1.6) url(#noise-filter) grayscale(1);
+      }
+      & figcaption {
+        color: #333;
+        font-size: 12pt;
+      }
+    }
+    section {
+      column-count: 2;
+      break-inside: avoid;
+    }
+    footer {
+      text-align: center;
+      padding: 2em 0;
+    }
+  </style>
+</head>
+<body>
+  <article id="main">
+    <header>
+      <h1>The Daily Mogus</h1>
+      <h3>April 10, 1917</h3>
+      <h2>CANADIANS CAPTURE THE FAMED VIMY RIDGE</h2>
+      <hr>
+    </header>
+    <section>
+      <picture>
+        <img src="vimy.png" height="250" width="auto" alt="Artillery fire at Vimy Ridge">
+        <figcaption>Bringing in our wounded. April 1917.</figcaption>
+        </figcaption>
+      </picture>
+      <p class="first">
+        Yesterday Easter Monday morning, an advance of from two to three miles was made by Canadian troops on a front about twelve miles north of Arras--the hinge of great German retirement in the Somme region of France.
+      </p>
+      <p>The famed Vimy ridge, which has defied allied attacks for more than two years, and cost the French 100,000 men in their failed offensive last year, was captured by the Canadians who now hold it. The Vimy ridge is a strategic point of interest, offering a view of enemy positions to the east. The assault on German positions was carried out by Canadian and British troops covered by artillery barrage, out-pacing German communication with the rapid tempo of the attack.</p>
+      <p>The main purpose as to why we have captured Vimy ridge is to protect British forces attacking the town of Arras from German fire.</p>
+      <p>Our troops penetrated far into German lines, inflicting heavy casualties upon the enemy. We have taken over 4,000 prisoners through the receiving stations, and large quantities of war material have fallen into our hands, which includes guns, trench mortars and machine guns, which have not yet been counted. Of the prisoners a large number belong to the Bavarian divisions, who had suffered heavy casualties in yesterday's fighting.</p>
+      <p>The Vimy ridge assault, with the exception of the fourth Canadian division, commanded by Major-General David Watson, has been carried out according to plan. Just as the 4th Canadian division left the trenches, they came under fire and suffered heavy casualties, with many survivors being unable to move. We believe that is due to insufficient bombing of German positions atop the highest points of the ridge. Among the casualties were numerous junior officers--company and platoon leaders.</p>
+      <p>The fight for Vimy ridge was not without death and plight, as recorded by the 2nd division’s 6th Brigade: “Wounded men sprawled everywhere in the slime, in the shell holes, in the mine craters, some screaming to the skies, some lying silently, some begging for help, some struggling to keep from drowning in craters, the field swarming with stretcher-bearers trying to keep up with the casualties.”</p>
+      <p>Our advance into Vimy ridge marks the first time the four Canadian divisions fight together as a single assaulting force against the Germans, and the deepest allied offensive into enemy lines.</p>
+      <p>As Brigadier-General Alexander Ross said that day, "It was Canada from the Atlantic to the Pacific on parade. I thought then, and I think today, that in those few minutes I witnessed the birth of a nation."</p>
+      <p>In preparation for yesterday's assault, the week before, our troops concentrated almost 1,000 heavy artillery pieces and field guns and fired more than a million shells at German positions. Our bombardment destroyed enemy trenches, gun emplacements, communications lines and villages.</p>
+    </section>
+  <svg>
+    <filter id="noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch"></feTurbulence>
+       <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"></feColorMatrix>
+          <feComposite operator="in" in2="SourceGraphic" result="monoNoise"></feComposite>
+          <feBlend in="SourceGraphic" in2="monoNoise" mode="screen"></feBlend>
+    </filter>
+  </svg>
+</body>
+</html>
